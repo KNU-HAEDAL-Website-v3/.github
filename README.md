@@ -1,19 +1,16 @@
-# .github
-
-
 <!--
 ================================================================================
   오픈소스 README 종합 템플릿
   - 필요한 섹션만 발췌해서 사용하세요.
-  - `<!-- -->` 주석은 작성 가이드입니다. 완성 후 삭제하세요.
-  - {{ }} 로 감싼 부분은 실제 값으로 치환하세요.
+  - "\<\!\-\- \-\-\>" 주석은 작성 가이드입니다. 완성 후 삭제하세요.
+  - `{{ }}` 로 감싼 부분은 실제 값으로 치환하세요.
 ================================================================================
 -->
 
 <!-- ========== 1. 헤더 영역 ========== -->
 
 <div align="center">
-
+  
 <!-- 로고 / 배너 이미지 -->
 <img src="docs/assets/logo.png" alt="{{PROJECT_NAME}} logo" width="180" />
 
@@ -32,7 +29,7 @@
 [문서](https://{{DOCS_URL}}) · [데모](https://{{DEMO_URL}}) · [버그 신고](https://github.com/{{OWNER}}/{{REPO}}/issues) · [기능 제안](https://github.com/{{OWNER}}/{{REPO}}/discussions)
 
 <!-- 다국어 README -->
-[English](README.md) · [한국어](README.ko.md) · [日本語](README.ja.md)
+[English](README.md) · [한국어](README.ko.md)
 
 </div>
 
@@ -98,22 +95,11 @@
 
 <!-- 스크린샷, GIF, 또는 라이브 데모 링크. 시각적 결과물이 있는 프로젝트라면 사실상 필수입니다. -->
 
-![Demo](docs/assets/demo.gif)
 
-> 라이브 데모: https://{{DEMO_URL}}
-> 플레이그라운드: https://{{PLAYGROUND_URL}}
 
 ### 왜 이 프로젝트인가
 
-<!-- 유사 프로젝트와의 비교표. 객관적이고 공정하게 작성하세요. -->
 
-| | **{{PROJECT_NAME}}** | {{대안 A}} | {{대안 B}} |
-|---|:---:|:---:|:---:|
-| {{비교 항목 1}} | ✅ | ❌ | ✅ |
-| {{비교 항목 2}} | ✅ | ✅ | ❌ |
-| 번들 크기 | {{n}} kB | {{n}} kB | {{n}} kB |
-| 의존성 | 0 | {{n}} | {{n}} |
-| 라이선스 | MIT | {{...}} | {{...}} |
 
 ---
 
@@ -122,78 +108,25 @@
 
 ### 요구사항
 
-- {{런타임}} {{버전}} 이상 (예: Node.js 18+)
-- {{패키지 매니저}} (예: npm 9+ / pnpm 8+)
-- {{선택적 의존성}} (예: Docker 24+, PostgreSQL 14+)
-- 지원 OS: macOS, Linux, Windows (WSL2 권장)
-
 ### 설치
 
-```bash
-# npm
-npm install {{PACKAGE_NAME}}
-
-# yarn
-yarn add {{PACKAGE_NAME}}
-
-# pnpm
-pnpm add {{PACKAGE_NAME}}
 ```
 
-<details>
-<summary>다른 설치 방법</summary>
-
-```bash
-# Homebrew
-brew install {{PACKAGE_NAME}}
-
-# Docker
-docker pull {{OWNER}}/{{REPO}}:latest
-
-# 소스에서 빌드
-git clone https://github.com/{{OWNER}}/{{REPO}}.git
-cd {{REPO}}
-make install
 ```
-
-</details>
 
 ### 빠른 시작
 
 <!-- 5분 안에 결과를 볼 수 있는 최소 예제. 복사-붙여넣기만으로 동작해야 합니다. -->
 
-```js
-import { createClient } from '{{PACKAGE_NAME}}';
+```
 
-const client = createClient({ apiKey: process.env.API_KEY });
-
-const result = await client.run('hello world');
-console.log(result);
-//=> { status: 'ok', data: [...] }
 ```
 
 ### 기본 사용법
 
-```js
-// 1) 초기화
-const client = createClient({
-  apiKey: process.env.API_KEY,
-  timeout: 5000,
-});
-
-// 2) 실행
-const result = await client.run(input, { retries: 3 });
-
-// 3) 정리
-await client.close();
 ```
 
-CLI로 사용하는 경우:
-
-```bash
-{{CLI_NAME}} run ./input.json --output ./result.json --verbose
 ```
-
 ---
 
 <!-- ========== 4. 상세 문서 ========== -->
@@ -203,31 +136,14 @@ CLI로 사용하는 경우:
 
 #### 설정 옵션
 
-| 옵션 | 타입 | 기본값 | 설명 |
-|---|---|---|---|
-| `apiKey` | `string` | — | **(필수)** 인증 키 |
-| `timeout` | `number` | `5000` | 요청 타임아웃 (ms) |
-| `retries` | `number` | `3` | 실패 시 재시도 횟수 |
-| `logLevel` | `'debug' \| 'info' \| 'error'` | `'info'` | 로그 레벨 |
 
 #### 환경 변수
 
-| 변수 | 필수 | 설명 |
-|---|:---:|---|
-| `API_KEY` | ✅ | 인증 키 |
-| `BASE_URL` | ❌ | 기본 엔드포인트 (기본값: `https://api.example.com`) |
-| `LOG_LEVEL` | ❌ | 로그 레벨 |
 
 #### 설정 파일
 
 ```yaml
-# {{project}}.config.yaml
-apiKey: ${API_KEY}
-timeout: 5000
-plugins:
-  - name: cache
-    options:
-      ttl: 3600
+
 ```
 
 ### API 레퍼런스
@@ -236,75 +152,26 @@ plugins:
 
 전체 레퍼런스: [docs/api.md](docs/api.md)
 
-#### `createClient(options)`
-
-클라이언트 인스턴스를 생성합니다.
-
-- **파라미터**
-  - `options.apiKey` `{string}` — 인증 키
-  - `options.timeout` `{number}` — 타임아웃 (ms)
-- **반환값** `{Client}`
-- **예외** `ConfigError` — 필수 옵션 누락 시
-
-#### `client.run(input, options?)`
-
-- **파라미터**
-  - `input` `{string | Buffer}` — 처리할 입력
-  - `options.retries` `{number}` — 재시도 횟수
-- **반환값** `{Promise<Result>}`
 
 #### CLI 명령어
 
-| 명령어 | 설명 |
-|---|---|
-| `{{CLI_NAME}} init` | 설정 파일 생성 |
-| `{{CLI_NAME}} run <file>` | 실행 |
-| `{{CLI_NAME}} validate` | 설정 검증 |
-
 ### 사용 예제
 
-더 많은 예제는 [`examples/`](examples/) 디렉터리를 참고하세요.
-
-- [기본 사용](examples/basic) — 최소 구성
-- [{{프레임워크}} 연동](examples/with-framework)
-- [고급 설정](examples/advanced) — 커스텀 플러그인, 미들웨어
-- [프로덕션 배포](examples/production)
 
 ### 아키텍처
 
 ```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Client    │────▶│    Core     │────▶│  Adapter    │
-│  (public)   │     │  (pipeline) │     │  (I/O)      │
-└─────────────┘     └─────────────┘     └─────────────┘
-                           │
-                    ┌──────▼──────┐
-                    │   Plugins   │
-                    └─────────────┘
+
 ```
 
 {{각 계층의 역할, 데이터 흐름, 핵심 설계 결정을 2~3문단으로 설명합니다.
 "왜 이렇게 만들었는가"를 담으면 기여자에게 큰 도움이 됩니다.}}
 
-자세한 설계 문서: [docs/architecture.md](docs/architecture.md)
+
 
 ### 성능 벤치마크
 
 <!-- 측정 환경을 반드시 명시하세요. 재현 가능해야 신뢰를 얻습니다. -->
-
-측정 환경: {{CPU}}, {{RAM}}, {{OS}}, {{런타임 버전}}
-
-| 시나리오 | {{PROJECT_NAME}} | {{대안 A}} | {{대안 B}} |
-|---|---:|---:|---:|
-| 콜드 스타트 | {{n}} ms | {{n}} ms | {{n}} ms |
-| 처리량 (ops/s) | {{n}} | {{n}} | {{n}} |
-| 메모리 사용량 | {{n}} MB | {{n}} MB | {{n}} MB |
-
-재현 방법:
-
-```bash
-npm run bench
-```
 
 ---
 
@@ -314,81 +181,35 @@ npm run bench
 ### 개발 환경 설정
 
 ```bash
-# 1) 저장소 클론
-git clone https://github.com/{{OWNER}}/{{REPO}}.git
-cd {{REPO}}
 
-# 2) 의존성 설치
-npm install
-
-# 3) 환경 변수 설정
-cp .env.example .env
-
-# 4) 개발 서버 실행
-npm run dev
 ```
 
 ### 프로젝트 구조
 
 ```
-{{REPO}}/
-├── src/                # 소스 코드
-│   ├── core/           # 핵심 로직
-│   ├── adapters/       # 외부 연동
-│   ├── plugins/        # 플러그인
-│   └── index.ts        # 진입점
-├── tests/              # 테스트
-│   ├── unit/
-│   └── integration/
-├── examples/           # 사용 예제
-├── docs/               # 문서
-├── scripts/            # 빌드/유틸 스크립트
-└── .github/
-    ├── workflows/      # CI/CD
-    └── ISSUE_TEMPLATE/
+
 ```
 
 ### 테스트
 
 ```bash
-npm test                 # 전체 테스트
-npm run test:unit        # 단위 테스트
-npm run test:e2e         # E2E 테스트
-npm run test:watch       # 워치 모드
-npm run test:coverage    # 커버리지 리포트
 
-npm run lint             # 린트
-npm run format           # 포맷팅
-npm run typecheck        # 타입 검사
 ```
 
 ### 기여 가이드
 
-기여는 언제나 환영합니다! 자세한 내용은 [CONTRIBUTING.md](CONTRIBUTING.md)를 참고하세요.
+기여는 언제나 환영합니다! 자세한 내용은 를 참고하세요.
 
-1. 저장소를 Fork 합니다.
-2. 기능 브랜치를 만듭니다. (`git checkout -b feat/amazing-feature`)
-3. 변경 사항을 커밋합니다. (`git commit -m 'feat: add amazing feature'`)
-4. 브랜치에 Push 합니다. (`git push origin feat/amazing-feature`)
-5. Pull Request를 엽니다.
 
-처음 기여하신다면 [`good first issue`](https://github.com/{{OWNER}}/{{REPO}}/labels/good%20first%20issue) 라벨이 붙은 이슈부터 살펴보세요.
+
+처음 기여하신다면 good first issue 라벨이 붙은 이슈부터 살펴보세요.
 
 ### 커밋 컨벤션
 
-[Conventional Commits](https://www.conventionalcommits.org/) 를 따릅니다.
+ 를 따릅니다.
 
 ```
-<type>(<scope>): <subject>
 
-feat:     새로운 기능
-fix:      버그 수정
-docs:     문서 변경
-style:    코드 포맷팅 (동작 변경 없음)
-refactor: 리팩터링
-perf:     성능 개선
-test:     테스트 추가/수정
-chore:    빌드, 설정 등 기타 변경
 ```
 
 ### 행동 강령
@@ -408,12 +229,12 @@ chore:    빌드, 설정 등 기타 변경
 - [ ] {{v2.0 예정 항목}}
 - [ ] {{검토 중인 항목}}
 
-전체 로드맵과 논의는 [Discussions](https://github.com/{{OWNER}}/{{REPO}}/discussions)에서 확인하세요.
+전체 로드맵과 논의는 에서 확인하세요.
 
 ### 변경 이력
 
-모든 변경 사항은 [CHANGELOG.md](CHANGELOG.md)에 기록됩니다.
-버전은 [Semantic Versioning](https://semver.org/lang/ko/)을 따릅니다.
+모든 변경 사항은 ~~에 기록됩니다.
+버전은 ~~을 따릅니다.
 
 ### 알려진 이슈 및 제한사항
 
@@ -421,7 +242,7 @@ chore:    빌드, 설정 등 기타 변경
 - {{제한사항 2}}
 - {{지원하지 않는 환경/시나리오}}
 
-최신 목록: [Issues](https://github.com/{{OWNER}}/{{REPO}}/issues)
+최신 목록: 
 
 ### FAQ
 
@@ -488,41 +309,30 @@ Copyright (c) {{YEAR}} {{AUTHOR}}
 
 이 프로젝트에 기여해주신 모든 분들께 감사드립니다.
 
-<a href="https://github.com/{{OWNER}}/{{REPO}}/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo={{OWNER}}/{{REPO}}" alt="contributors" />
-</a>
 
 ### 감사의 말
 
-- [{{참고 프로젝트}}]({{URL}}) — {{어떤 영감/코드를 받았는지}}
-- [{{라이브러리}}]({{URL}}) — {{역할}}
+-  — {{어떤 영감/코드를 받았는지}}
+-  — {{역할}}
 - {{도움을 준 사람이나 조직}}
 
 ### 후원
 
 이 프로젝트가 도움이 되었다면 ⭐️ 를 눌러주세요!
 
-- [GitHub Sponsors](https://github.com/sponsors/{{OWNER}})
-- [Open Collective](https://opencollective.com/{{PROJECT}})
-- [Buy Me a Coffee](https://buymeacoffee.com/{{OWNER}})
+- [GitHub Sponsors]
+- [Open Collective]
+- [Buy Me a Coffee]
 
 ### 관련 프로젝트
 
-- [{{관련 프로젝트 1}}]({{URL}}) — {{설명}}
-- [{{플러그인/확장}}]({{URL}}) — {{설명}}
-- [{{공식 통합}}]({{URL}}) — {{설명}}
 
 ### 커뮤니티 및 연락처
 
-- 💬 [Discord]({{DISCORD_URL}}) — 실시간 질문과 잡담
-- 🗣 [GitHub Discussions](https://github.com/{{OWNER}}/{{REPO}}/discussions) — 아이디어 제안, Q&A
-- 🐛 [Issues](https://github.com/{{OWNER}}/{{REPO}}/issues) — 버그 신고
-- 🐦 [@{{HANDLE}}](https://twitter.com/{{HANDLE}})
-- 📧 {{EMAIL}}
 
 ### 보안 취약점 신고
 
-보안 취약점은 **공개 이슈로 등록하지 마시고** [SECURITY.md](SECURITY.md)의 절차에 따라 비공개로 제보해주세요.
+보안 취약점은 **공개 이슈로 등록하지 마시고** ~~~의 절차에 따라 비공개로 제보해주세요.
 
 ---
 
@@ -530,6 +340,6 @@ Copyright (c) {{YEAR}} {{AUTHOR}}
 
 **[⬆ 맨 위로](#{{project_name}})**
 
-Made with ❤️ by [{{AUTHOR}}]({{URL}})
+Made with ❤️ by 
 
 </div>
