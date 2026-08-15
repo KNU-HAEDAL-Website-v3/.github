@@ -1,0 +1,12 @@
+name: "🔧 버그 수정"
+description: "버그를 수정합니다."
+title: "[FIX] "
+labels: ["fix"]
+
+body:
+  - type: textarea
+    attributes:
+      label: "수정할 내용"
+      description: "무엇을 수정할지 간단히 작성해주세요."
+    validations:
+      required: true
