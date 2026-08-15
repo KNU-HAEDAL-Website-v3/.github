@@ -1,0 +1,13 @@
+name: "✨ 기능 추가"
+description: "새로운 기능을 추가합니다. 단순 제안도 여기!"
+title: "[FEAT] "
+labels: ["feat"]
+
+body:
+  - type: textarea
+    attributes:
+      label: "추가할 기능"
+      description: "무엇을 추가할지 간단히 작성해주세요."
+    validations:
+      required: true
+      
