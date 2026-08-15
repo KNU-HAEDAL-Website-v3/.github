@@ -1,0 +1,19 @@
+name: "🐛 버그 신고"
+description: "발견한 버그를 신고합니다.편하게 적으셔도 됩니다:)"
+title: "[BUG] "
+labels: ["bug"]
+
+body:
+  - type: textarea
+    attributes:
+      label: "발생한 문제"
+      description: "어떤 문제가 발생했는지 작성해주세요."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "재현 방법"
+      description: "문제가 발생하는 과정을 간단히 작성해주세요."
+    validations:
+      required: true
