@@ -1,0 +1,12 @@
+name: "📝 문서 작성"
+description: "문서를 작성하거나 수정합니다."
+title: "[DOCS] "
+labels: ["docs"]
+
+body:
+  - type: textarea
+    attributes:
+      label: "작성할 내용"
+      description: "어떤 문서를 작성하거나 수정할지 작성해주세요."
+    validations:
+      required: true
